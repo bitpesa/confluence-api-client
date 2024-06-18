@@ -15,7 +15,7 @@ module Confluence
           faraday.request :url_encoded # form-encode POST params
           # faraday.response :logger                  # log requests to STDOUT
           faraday.adapter Faraday.default_adapter # make requests with Net::HTTP
-          faraday.basic_auth(self.user, self.pass)
+          faraday.request :authorization, :basic, self.user, self.pass
         end
       end
 
